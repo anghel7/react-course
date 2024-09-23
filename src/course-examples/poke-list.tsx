@@ -44,7 +44,7 @@ const PokeList: FC = () => {
       <div style={{ display: "flex", justifyContent: 'center' }}>
         <h1>Poke List</h1>
       </div>
-      <Table>
+      <Table className="w-[300px]">
         <TableCaption>A list of pokes.</TableCaption>
         <TableHeader>
           <TableRow>
