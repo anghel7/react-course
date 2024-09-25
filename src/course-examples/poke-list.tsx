@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { AxiosResponse } from 'axios';
+import { Link } from "react-router-dom";
 
 
 type PokeData = {
@@ -56,7 +57,10 @@ const PokeList: FC = () => {
           {list.map((poke, index) => (
             <TableRow key={index}>
               <TableCell className="font-medium">{poke.name}</TableCell>
-              <TableCell className="text-right"><a href="#" className='text-sky-600'>{poke.url}</a></TableCell>
+              <TableCell className="text-right">
+                {/* <a href="#" className='text-sky-600'>{poke.url}</a> */}
+                {/* <Link to="/view/">View data</Link> */}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
