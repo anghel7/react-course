@@ -6,6 +6,7 @@ import PokeInfo from './course-examples/poke-info'
 
 import { Routes, Route } from "react-router-dom"
 import PokeList from './course-examples/poke-list'
+import CountryListComponent from './pages/home/components/countryListComponent/CountryListComponent'
 // import Home from './pages/home/Home'
 // import ControlledForm from './course-examples/controlled-form'
 // import NoControlledForm from './course-examples/no-controlled-form'
@@ -20,16 +21,20 @@ export function App() {
         </Routes>
       </div> */}
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <div style={{ display: 'flex', alignItems:'center', gap:'10px' }}>
+          <ModeToggle></ModeToggle>
+          <h3>Mode</h3>
+        </div>
 
-        <ModeToggle></ModeToggle>
         {/* <Home></Home> */}
         {/* <ControlledForm></ControlledForm> */}
         {/* <NoControlledForm></NoControlledForm> */}
         {/* <PokeList></PokeList> */}
         {/* <PokeInfo></PokeInfo> */}
         <Routes>
-          <Route path='/' element={<PokeList></PokeList>}></Route>
+          <Route path='/pokelist' element={<PokeList></PokeList>}></Route>
           <Route path='/view/:id' element={<PokeInfo></PokeInfo>}></Route>
+          <Route path='/' element={<CountryListComponent></CountryListComponent>}></Route>
         </Routes>
 
       </ThemeProvider>
