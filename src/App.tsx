@@ -7,6 +7,7 @@ import PokeInfo from './course-examples/poke-info'
 import { Routes, Route } from "react-router-dom"
 import PokeList from './course-examples/poke-list'
 import CountryListComponent from './pages/home/components/countryListComponent/CountryListComponent'
+import CountryDetailComponent from './pages/home/components/countryDetailComponent/CountryDetailComponent'
 // import Home from './pages/home/Home'
 // import ControlledForm from './course-examples/controlled-form'
 // import NoControlledForm from './course-examples/no-controlled-form'
@@ -44,6 +45,7 @@ export function App() {
           <Route path='/pokelist' element={<PokeList></PokeList>}></Route>
           <Route path='/view/:id' element={<PokeInfo></PokeInfo>}></Route>
           <Route path='/' element={<CountryListComponent></CountryListComponent>}></Route>
+          <Route path='/country/detail' element={<CountryDetailComponent></CountryDetailComponent>}></Route>
         </Routes>
 
       </ThemeProvider>
