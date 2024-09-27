@@ -21,10 +21,19 @@ export function App() {
         </Routes>
       </div> */}
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <div style={{ display: 'flex', alignItems:'center', gap:'10px' }}>
+
+        <div className='main-header'>
+          <h1 className='text-2xl'>Where in the world?</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <ModeToggle></ModeToggle>
+            <h1>Mode</h1>
+          </div>
+        </div>
+
+        {/* <div style={{ display: 'flex', alignItems:'center', gap:'10px' }}>
           <ModeToggle></ModeToggle>
           <h3>Mode</h3>
-        </div>
+        </div> */}
 
         {/* <Home></Home> */}
         {/* <ControlledForm></ControlledForm> */}
