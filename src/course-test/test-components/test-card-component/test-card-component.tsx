@@ -1,10 +1,25 @@
 import { FC, } from 'react';
 
-const TestCardComponent: FC = (props) => {
+interface TestCardBarProps{
+  title:string,
+  description:string
+}
+
+const Style = {
+  border: '1px solid red',
+  width: '400px'
+}
+
+
+
+const TestCardComponent: FC<TestCardBarProps> = ({title, description}) => {
 
   return (
     <>
-      <p>TestCardComponent!!!!!</p>
+      <div style={Style}>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </div>
     </>
   )
 }
