@@ -11,3 +11,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.profile-photo{
+  border: 2px solid black;
+  cursor: pointer;
+}

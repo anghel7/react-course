@@ -45,7 +45,7 @@ export function App() {
           <Route path='/pokelist' element={<PokeList></PokeList>}></Route>
           <Route path='/view/:id' element={<PokeInfo></PokeInfo>}></Route>
           <Route path='/' element={<CountryListComponent></CountryListComponent>}></Route>
-          <Route path='/country/detail' element={<CountryDetailComponent></CountryDetailComponent>}></Route>
+          <Route path='/country/detail/:countryIndex' element={<CountryDetailComponent></CountryDetailComponent>}></Route>
         </Routes>
 
       </ThemeProvider>
