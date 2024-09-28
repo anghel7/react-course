@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom"
 import PokeList from './course-examples/poke-list'
 import CountryListComponent from './pages/home/components/countryListComponent/CountryListComponent'
 import CountryDetailComponent from './pages/home/components/countryDetailComponent/CountryDetailComponent'
+import CountryFormComponent from './pages/home/components/countryFormComponent/CountryFormComponent'
 // import Home from './pages/home/Home'
 // import ControlledForm from './course-examples/controlled-form'
 // import NoControlledForm from './course-examples/no-controlled-form'
@@ -46,6 +47,7 @@ export function App() {
           <Route path='/view/:id' element={<PokeInfo></PokeInfo>}></Route>
           <Route path='/' element={<CountryListComponent></CountryListComponent>}></Route>
           <Route path='/country/detail/:countryIndex' element={<CountryDetailComponent></CountryDetailComponent>}></Route>
+          <Route path='/country/form' element={<CountryFormComponent></CountryFormComponent>}></Route>
         </Routes>
 
       </ThemeProvider>

@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 
 import './CountryListComponent.css'
@@ -30,11 +31,16 @@ const CountryListComponent: FC = () => {
     navigate(`/country/detail/${index}`);
   }
 
+  const handleClickForm = (event: SyntheticEvent) => {
+    navigate(`country/form`);
+  }
+
   return (
     <>
       <div className='tool-bar'>
-        <div className="w-[180px]">
+        <div className="w-[180px] search-container">
           <Input type="text" placeholder="Search for a country ..." />
+          <Button variant="outline" className="w-[180px]" onClick={handleClickForm}>New Country</Button>
         </div>
 
         <Select>

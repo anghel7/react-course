@@ -1,0 +1,25 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-container{
+  padding: 20px;
+  width: 1000px;
+  display: flex;
+  min-width: 875px;
+}
+
+.detail-container {
+  /* border: 1px solid rgb(39, 13, 13); */
+  padding: 20px;
+  width: 1000px;
+  min-width: 875px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
