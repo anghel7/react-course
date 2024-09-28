@@ -10,6 +10,8 @@ import CountryListComponent from './pages/home/components/countryListComponent/C
 import CountryDetailComponent from './pages/home/components/countryDetailComponent/CountryDetailComponent'
 import CountryFormComponent from './pages/home/components/countryFormComponent/CountryFormComponent'
 import { Toaster } from './components/ui/toaster'
+import TestView1Component from './course-test/test-pages/test-view-1-component/test-view-1-component'
+import TestView2Component from './course-test/test-pages/test-view-2-component/test-view-2-component'
 // import Home from './pages/home/Home'
 // import ControlledForm from './course-examples/controlled-form'
 // import NoControlledForm from './course-examples/no-controlled-form'
@@ -49,6 +51,8 @@ export function App() {
           <Route path='/' element={<CountryListComponent></CountryListComponent>}></Route>
           <Route path='/country/detail/:countryIndex' element={<CountryDetailComponent></CountryDetailComponent>}></Route>
           <Route path='/country/form' element={<CountryFormComponent></CountryFormComponent>}></Route>
+          <Route path='/test/view1' element={<TestView1Component></TestView1Component>}></Route>
+          <Route path='/test/view2' element={<TestView2Component></TestView2Component>}></Route>
         </Routes>
 
       </ThemeProvider>
