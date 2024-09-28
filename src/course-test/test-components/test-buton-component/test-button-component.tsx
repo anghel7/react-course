@@ -1,7 +1,8 @@
 import { FC, } from 'react';
 
 interface TestButtonProps{
-  content:string
+  content:string,
+  customClick?:any
 }
 
 const Style = {
@@ -14,7 +15,7 @@ const TestButtonComponent: FC<TestButtonProps> = (props) => {
 
   return (
     <>
-      <button type='button' style={Style}>{props.content}</button>
+      <button type='button' style={Style} onClick={props.customClick}>{props.content}</button>
     </>
   )
 }
