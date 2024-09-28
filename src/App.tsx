@@ -9,6 +9,7 @@ import PokeList from './course-examples/poke-list'
 import CountryListComponent from './pages/home/components/countryListComponent/CountryListComponent'
 import CountryDetailComponent from './pages/home/components/countryDetailComponent/CountryDetailComponent'
 import CountryFormComponent from './pages/home/components/countryFormComponent/CountryFormComponent'
+import { Toaster } from './components/ui/toaster'
 // import Home from './pages/home/Home'
 // import ControlledForm from './course-examples/controlled-form'
 // import NoControlledForm from './course-examples/no-controlled-form'
@@ -51,6 +52,7 @@ export function App() {
         </Routes>
 
       </ThemeProvider>
+      <Toaster />
     </>
 
   )

@@ -1,5 +1,4 @@
-import { FC, useEffect, useState, SyntheticEvent } from 'react';
-import { Badge } from "@/components/ui/badge"
+import { FC } from 'react';
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -11,27 +10,28 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { ToastAction } from "@/components/ui/toast"
 import './CountryFormComponent.css'
-import { Country, Currency, Language } from '@/models';
 import { useNavigate } from 'react-router-dom';
+import { SubmitHandler, useForm, } from 'react-hook-form';
+import { useToast } from '@/hooks/use-toast';
 
 const CountryFormComponent: FC = () => {
-  const [country, setCountry] = useState<Country | undefined>(undefined);
   const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
+  const { toast } = useToast()
 
-  useEffect(() => {
-
-  }, []);
-
-  const handleClick = (event: SyntheticEvent) => {
+  const handleClick = () => {
     navigate(`/`);
+  }
+
+  const onSubmit: SubmitHandler<any> = () => {
+    toast({
+      variant: "destructive",
+      title: "Uh oh! Something went wrong.",
+      description: "Backend implementation is not already.",
+      action: <ToastAction altText="Try latter">Try again</ToastAction>,
+    })
   }
 
   return (
@@ -41,29 +41,29 @@ const CountryFormComponent: FC = () => {
           <Button variant="secondary" onClick={handleClick}>Back</Button>
         </div>
         <div className='detail-container'>
-          <Card className="w-[350px]">
-            <CardHeader>
-              <CardTitle>Create Country</CardTitle>
-              <CardDescription>Insert Data Country</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Card className="w-[350px]">
+              <CardHeader>
+                <CardTitle>Create Country</CardTitle>
+                <CardDescription>Insert Data Country</CardDescription>
+              </CardHeader>
+              <CardContent>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Country Name" />
+                    <Input id="name" {...register("name")} placeholder="Country Name" />
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="nativename">Native Name</Label>
-                    <Input id="nativename" placeholder="Native Name" />
+                    <Input id="nativename" {...register("nativename")} placeholder="Native Name" />
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="population">Population</Label>
-                    <Input id="population" placeholder="Population" />
+                    <Input id="population" {...register("population")} placeholder="Population" />
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="capital">Capital</Label>
-                    <Input id="capital" placeholder="Capital" />
+                    <Input id="capital" {...register("capital")} placeholder="Capital" />
                   </div>
                   {/* <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="framework">Framework</Label>
@@ -80,13 +80,13 @@ const CountryFormComponent: FC = () => {
                     </Select>
                   </div> */}
                 </div>
-              </form>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Button variant="outline">Cancel</Button>
-              <Button>Accept</Button>
-            </CardFooter>
-          </Card>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline">Cancel</Button>
+                <Button type='submit'>Accept</Button>
+              </CardFooter>
+            </Card>
+          </form>
         </div>
       </div>
     </>
