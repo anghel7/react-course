@@ -1,25 +1,35 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, SyntheticEvent } from 'react';
 import { Badge } from "@/components/ui/badge"
-import { useParams } from 'react-router-dom';
-
-
+import { Button } from "@/components/ui/button"
+import { useNavigate, useParams } from 'react-router-dom';
 import './CountryDetailComponent.css'
 import { Country, Currency, Language } from '@/models';
-import { COUNTRIES_LIST } from '../countryListComponent/CountryListComponent';
+import { COUNTRIES } from '@/mock-data';
+
 
 const CountryDetailComponent: FC = () => {
   const [country, setCountry] = useState<Country | undefined>(undefined);
   const { countryIndex } = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (countryIndex != undefined) {
-      setCountry(COUNTRIES[Number(countryIndex)]);
+      setCountry(COUNTRIES_LIST[Number(countryIndex)]);
     }
   }, []);
+
+  const handleClick = (event: SyntheticEvent) => {
+    navigate(`/`);
+  }
+
   return (
     <>
       {country != undefined
         ?
         <div className='main-container'>
+          <div className='back-container'>
+            <Button variant="secondary" onClick={handleClick}>Back</Button>
+          </div>
           <div className='detail-container'>
             <div className='flag-container'>
               <img className="profile-photo" src={country.flags.png} alt={"Carlie Anglemire"} />
@@ -67,4 +77,4 @@ const CountryDetailComponent: FC = () => {
 export default CountryDetailComponent
 
 
-const COUNTRIES: Country[] = COUNTRIES_LIST;
+const COUNTRIES_LIST: Country[] = COUNTRIES;

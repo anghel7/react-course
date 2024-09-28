@@ -43,12 +43,12 @@ const CountryListComponent: FC = () => {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Fruits</SelectLabel>
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-              <SelectItem value="blueberry">Blueberry</SelectItem>
-              <SelectItem value="grapes">Grapes</SelectItem>
-              <SelectItem value="pineapple">Pineapple</SelectItem>
+              <SelectLabel>Region</SelectLabel>
+              <SelectItem value="Asia">Asia</SelectItem>
+              <SelectItem value="Europe">Europe</SelectItem>
+              <SelectItem value="Africa">Africa</SelectItem>
+              <SelectItem value="Oceania">Oceania</SelectItem>
+              <SelectItem value="Americas">Americas</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -74,4 +74,4 @@ const CountryListComponent: FC = () => {
 
 export default CountryListComponent
 
-export const COUNTRIES_LIST: Country[] = COUNTRIES;
+const COUNTRIES_LIST: Country[] = COUNTRIES;
