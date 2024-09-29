@@ -6,6 +6,7 @@ import { AxiosResponse } from 'axios';
 
 const TestView2Component: FC = (props) => {
   const [list, setList] = useState<PokeItemListDto[]>([]);
+
   useEffect(() => {
     const getPoke = async () => {
       const response = await getPokeList();
@@ -15,6 +16,10 @@ const TestView2Component: FC = (props) => {
       }
     }
     getPoke();
+
+    getPokeListFetch().then(result=>{
+      console.log('Executed');
+    })
   }, []);
 
   return (
@@ -58,3 +63,21 @@ export const pokeApi = axios.create({
         "Content-Type": "application/json"
     }
 });
+
+/**************************************** */
+
+const getPokeListFetch = async () => {
+  const url = "https://pokeapi.co/api/v2/";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const json = await response.json();
+    console.log('Get pockedata with fetch: ', json);
+    
+  } catch (error) {
+    console.error(error);
+  }
+}
